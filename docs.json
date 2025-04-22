@@ -1,55 +1,148 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Flowbotic Documentation",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#3B82F6",
+    "light": "#60A5FA",
+    "dark": "#2563EB"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "User Guide",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "Getting Started",
             "pages": [
               "introduction",
-              "quickstart",
-              "development"
+              "getting-started/account-creation",
+              "getting-started/dashboard-overview",
+              "getting-started/interface-navigation"
             ]
           },
           {
-            "group": "Essentials",
+            "group": "AI Assistants",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "ai-assistants/overview",
+              "ai-assistants/chat-assistants",
+              "ai-assistants/email-assistants",
+              "ai-assistants/voice-assistants",
+              "ai-assistants/testing-assistants",
+              "ai-assistants/management"
+            ]
+          },
+          {
+            "group": "Knowledge Base",
+            "pages": [
+              "knowledge-base/overview",
+              "knowledge-base/uploading-files",
+              "knowledge-base/management",
+              "knowledge-base/best-practices"
+            ]
+          },
+          {
+            "group": "Communication Channels",
+            "pages": [
+              "communication-channels/overview",
+              "communication-channels/webchat-widget",
+              "communication-channels/email-integration",
+              "communication-channels/voice-calls",
+              "communication-channels/management"
+            ]
+          },
+          {
+            "group": "Ticket Management",
+            "pages": [
+              "ticket-management/overview",
+              "ticket-management/creating-tickets",
+              "ticket-management/workflow",
+              "ticket-management/views-filters",
+              "ticket-management/escalation"
+            ]
+          },
+          {
+            "group": "Analytics & Reporting",
+            "pages": [
+              "analytics/overview",
+              "analytics/assistant-performance",
+              "analytics/conversation-metrics",
+              "analytics/custom-reports",
+              "analytics/exporting-data"
+            ]
+          },
+          {
+            "group": "Settings & Configuration",
+            "pages": [
+              "settings/user-settings",
+              "settings/company-branding",
+              "settings/organization-management",
+              "settings/roles-permissions"
+            ]
+          },
+          {
+            "group": "Troubleshooting",
+            "pages": [
+              "troubleshooting/common-issues",
+              "troubleshooting/faq",
+              "troubleshooting/support"
             ]
           }
         ]
       },
       {
-        "tab": "API Reference",
+        "tab": "Developer Resources",
         "groups": [
           {
-            "group": "API Documentation",
+            "group": "API Reference",
             "pages": [
-              "api-reference/introduction"
+              "api-reference/introduction",
+              "api-reference/authentication",
+              "api-reference/errors"
             ]
           },
           {
-            "group": "Endpoint Examples",
+            "group": "Endpoints",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "api-reference/assistants/list",
+              "api-reference/assistants/create",
+              "api-reference/assistants/update",
+              "api-reference/assistants/delete",
+              "api-reference/knowledge/list",
+              "api-reference/knowledge/upload",
+              "api-reference/tickets/list",
+              "api-reference/tickets/create"
+            ]
+          },
+          {
+            "group": "Integration Guides",
+            "pages": [
+              "integrations/webchat-widget",
+              "integrations/email-setup",
+              "integrations/voice-integration"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Technical Documentation",
+        "groups": [
+          {
+            "group": "Platform Architecture",
+            "pages": [
+              "technical/overview",
+              "technical/system-design",
+              "technical/database-schema",
+              "technical/deployment"
+            ]
+          },
+          {
+            "group": "Security & Compliance",
+            "pages": [
+              "security/data-security",
+              "security/authentication",
+              "security/compliance"
             ]
           }
         ]
@@ -59,17 +152,17 @@
       "anchors": [
         {
           "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
+          "href": "https://docs.flowbotic.com",
           "icon": "book-open-cover"
         },
         {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
+          "anchor": "Support",
+          "href": "https://support.flowbotic.com",
+          "icon": "life-buoy"
         },
         {
           "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
+          "href": "https://blog.flowbotic.com",
           "icon": "newspaper"
         }
       ]
@@ -83,20 +176,20 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@flowbotic.com"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "href": "https://app.flowbotic.com"
     }
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/flowbotic",
+      "github": "https://github.com/flowbotic",
+      "linkedin": "https://linkedin.com/company/flowbotic"
     }
   }
 }
