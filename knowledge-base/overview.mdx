@@ -1,0 +1,198 @@
+---
+title: 'Knowledge Base Overview'
+description: 'Understanding how to use the Knowledge Base to power your AI assistants'
+---
+
+# Knowledge Base Overview
+
+The Knowledge Base is a central repository for all the information your AI assistants need to provide accurate and helpful responses. This guide explains what the Knowledge Base is, how it works, and best practices for organizing your knowledge.
+
+## What is the Knowledge Base?
+
+The Knowledge Base in Flowbotic is a collection of documents and files that:
+
+- Provides domain-specific knowledge to your AI assistants
+- Allows assistants to reference accurate, up-to-date information
+- Ensures consistent responses across conversations
+- Reduces the need for human intervention
+- Enables assistants to handle specialized topics
+
+<img src="/images/knowledge-base-overview.png" alt="Knowledge Base Overview" />
+*[Screenshot placeholder: Knowledge Base dashboard showing categories and files]*
+
+## How Knowledge Works with Assistants
+
+When a user asks a question, the following process occurs:
+
+1. **Query Analysis**: The system analyzes the user's question
+2. **Knowledge Search**: The system searches the Knowledge Base for relevant information
+3. **Relevance Ranking**: Relevant content is ranked by how well it matches the query
+4. **Context Integration**: The most relevant knowledge is provided to the AI model as context
+5. **Response Generation**: The assistant generates a response using this context
+
+<img src="/images/knowledge-retrieval-flow.png" alt="Knowledge Retrieval Flow" />
+*[Screenshot placeholder: Diagram showing the knowledge retrieval process]*
+
+## Supported File Types
+
+The Knowledge Base supports various file types to accommodate different content needs:
+
+| File Type | Best For | Size Limit |
+|-----------|----------|------------|
+| PDF (.pdf) | Formatted documents, manuals, brochures | 50MB |
+| Word (.docx, .doc) | Text documents with formatting | 25MB |
+| Text (.txt) | Simple text content | 10MB |
+| Markdown (.md) | Formatted text with simple markup | 10MB |
+| CSV (.csv) | Tabular data, product lists | 25MB |
+| Excel (.xlsx, .xls) | Complex tabular data, calculations | 25MB |
+| HTML (.html) | Web content | 10MB |
+| PowerPoint (.pptx, .ppt) | Presentations with key points | 25MB |
+
+<Note>
+While images within documents are processed, the system primarily extracts and works with text content. Very image-heavy documents may not be processed optimally.
+</Note>
+
+## Knowledge Base Organization
+
+The Knowledge Base is organized into a flexible structure:
+
+### Categories
+
+Categories help organize knowledge files into logical groups:
+
+- **Default Categories**: General, Products, Support, Policies
+- **Custom Categories**: Create your own to match your business needs
+
+### Tags
+
+Tags provide additional metadata to help with organization and filtering:
+
+- Apply multiple tags to each file
+- Filter and search by tags
+- Use for cross-cutting concerns (e.g., "technical", "beginner", "obsolete")
+
+### File Metadata
+
+Each file in the Knowledge Base has associated metadata:
+
+- **Title**: The display name of the file (can differ from filename)
+- **Description**: A brief summary of the file's content
+- **Version**: Track document versions
+- **Last Updated**: When the file was last modified
+- **Custom Fields**: Add your own metadata fields as needed
+
+<img src="/images/file-metadata.png" alt="File Metadata" />
+*[Screenshot placeholder: File metadata editing interface]*
+
+## Knowledge Retrieval Settings
+
+When connecting knowledge to assistants, you can adjust several settings that control how knowledge is retrieved and used:
+
+### Global Settings
+
+These settings apply to all knowledge retrievals:
+
+- **Relevance Threshold**: Set the minimum relevance score (0.0-1.0) for content to be included
+- **Max References**: Set the maximum number of knowledge chunks to include
+- **Context Window Size**: Determine how much of the document is included in each chunk
+
+### File-Specific Settings
+
+Configure how individual files are processed:
+
+- **Priority Level**: Give certain files precedence in retrieval
+- **Inclusion Rules**: Specify when to include or exclude certain files
+- **Processing Method**: Choose between different chunking strategies
+
+<img src="/images/knowledge-settings.png" alt="Knowledge Retrieval Settings" />
+*[Screenshot placeholder: Knowledge retrieval configuration screen]*
+
+## Knowledge Base Capabilities
+
+The Knowledge Base offers several key capabilities:
+
+### Full-Text Search
+
+- Search across all documents in your Knowledge Base
+- Find specific content using advanced search operators
+- Filter search results by category, tag, or file type
+
+### Version Control
+
+- Track changes to documents over time
+- Revert to previous versions if needed
+- Compare different versions of the same document
+
+### Access Control
+
+- Set permissions on who can view or edit knowledge files
+- Restrict sensitive information to specific assistants
+- Create public and private knowledge collections
+
+### Content Insights
+
+- See which knowledge files are being accessed most frequently
+- Identify knowledge gaps based on unanswered questions
+- Track knowledge accuracy and helpfulness
+
+<img src="/images/knowledge-insights.png" alt="Knowledge Insights" />
+*[Screenshot placeholder: Knowledge usage analytics dashboard]*
+
+## Best Practices
+
+### Document Preparation
+
+- **Clear Structure**: Use headings, lists, and tables for clear organization
+- **Concise Content**: Keep text clear and to the point
+- **Searchable Terms**: Include likely search terms and synonyms
+- **Consistent Formatting**: Maintain consistent document structure
+- **Regular Updates**: Keep information current and accurate
+
+### Knowledge Organization
+
+- **Logical Categories**: Create intuitive categories that make sense to your team
+- **Consistent Tagging**: Develop and follow a consistent tagging system
+- **Descriptive Filenames**: Use clear, descriptive filenames
+- **Complete Metadata**: Fill out metadata fields thoroughly
+- **Avoid Duplication**: Minimize overlapping or redundant content
+
+### Optimization for Retrieval
+
+- **Topic Focus**: Keep each document focused on a specific topic
+- **Question-Answer Format**: Where appropriate, structure content as Q&A
+- **Key Information First**: Put the most important information at the beginning
+- **Context Inclusion**: Provide enough context for standalone understanding
+- **Cross-References**: Mention related documents where appropriate
+
+## Getting Started with the Knowledge Base
+
+<CardGroup cols={2}>
+  <Card
+    title="Uploading Files"
+    icon="file-arrow-up"
+    href="/knowledge-base/uploading-files"
+  >
+    Learn how to add documents to your Knowledge Base
+  </Card>
+  <Card
+    title="Managing Knowledge"
+    icon="folder-tree"
+    href="/knowledge-base/management"
+  >
+    Organize and maintain your Knowledge Base effectively
+  </Card>
+  <Card
+    title="Best Practices"
+    icon="lightbulb"
+    href="/knowledge-base/best-practices"
+  >
+    Tips for optimizing your knowledge content
+  </Card>
+  <Card
+    title="Associate with Assistants"
+    icon="link"
+    href="/ai-assistants/overview"
+  >
+    Connect knowledge to your AI assistants
+  </Card>
+</CardGroup>

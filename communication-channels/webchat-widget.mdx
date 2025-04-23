@@ -1,0 +1,418 @@
+---
+title: 'Website Chat Widget'
+description: 'Integrate an AI-powered chat widget on your website'
+---
+
+# Website Chat Widget
+
+The Flowbotic Website Chat Widget allows you to embed an AI-powered chat interface directly on your website, enabling visitors to engage with your AI assistants in real-time. This guide covers the setup, customization, and integration of the chat widget.
+
+## Overview
+
+The Website Chat Widget is a lightweight, customizable component that appears on your website, typically in the corner of the screen. It enables:
+
+- Real-time conversations with AI assistants
+- Rich interactions with text, buttons, and media
+- Seamless handoff to human agents when needed
+- Visitor information collection
+- Persistent conversation history
+
+<img src="/images/webchat-widget-example.png" alt="Webchat Widget Example" />
+*[Screenshot placeholder: Website with chat widget open showing a conversation]*
+
+## Setting Up the Chat Widget
+
+### Prerequisites
+
+Before setting up the chat widget, you should have:
+
+- A chat assistant already created and tested
+- Admin access to your website to add the widget code
+- Clear goals for how the widget will be used
+
+### Step 1: Create a New Channel
+
+1. Navigate to **Communication Channels** in the sidebar
+2. Click **+ Add Channel** button
+3. Select **Website Chat Widget**
+4. Click **Continue**
+
+<img src="/images/create-chat-widget.png" alt="Create Chat Widget" />
+*[Screenshot placeholder: Channel creation screen with Website Chat selected]*
+
+### Step 2: Basic Configuration
+
+1. **Channel Name**: Give your widget a descriptive name (internal only)
+2. **Assistant**: Select the AI assistant that will power this widget
+3. **Website URLs**: Enter the domains where this widget will be used
+   - This is a security measure to prevent unauthorized use
+   - Add multiple domains if needed (e.g., staging and production)
+
+<img src="/images/widget-basic-config.png" alt="Widget Basic Configuration" />
+*[Screenshot placeholder: Basic configuration screen for chat widget]*
+
+### Step 3: Appearance Customization
+
+Configure how your widget looks and behaves on your website:
+
+#### General Appearance
+
+1. **Theme**: Choose between Light, Dark, or System (follows user's preferences)
+2. **Primary Color**: Select a color that matches your brand
+3. **Widget Position**: Choose where the widget appears (bottom-right, bottom-left, etc.)
+4. **Border Radius**: Adjust the roundness of the widget corners
+5. **Font**: Select from available font options or use your website's font
+
+#### Widget State
+
+Customize the different states of the widget:
+
+1. **Closed State**:
+   - Icon or logo
+   - Widget button size
+   - Button tooltip text
+
+2. **Open State**:
+   - Header title and subtitle
+   - Header logo/avatar
+   - Window size (height and width)
+   - Maximum/minimum size constraints
+
+<img src="/images/widget-appearance.png" alt="Widget Appearance" />
+*[Screenshot placeholder: Appearance customization interface with preview]*
+
+### Step 4: Behavior Settings
+
+Configure how the widget interacts with users:
+
+1. **Initial Message**: Set the first message users see when opening the widget
+2. **Auto-Open**: Configure if and when the widget should automatically open
+   - On page load
+   - After time delay
+   - On specific pages
+   - Based on user behavior
+
+3. **Pre-Chat Form**: Collect information before starting a conversation
+   - Name
+   - Email
+   - Custom fields
+   - Required vs. optional fields
+
+4. **File Attachments**: Enable/disable file sharing
+   - Allowed file types
+   - Maximum file size
+   - Usage limits
+
+5. **Operation Hours**: Set when the widget is available
+   - 24/7 operation
+   - Business hours only
+   - Custom schedule
+   - Different behavior outside operating hours
+
+<img src="/images/widget-behavior.png" alt="Widget Behavior" />
+*[Screenshot placeholder: Behavior configuration screen]*
+
+### Step 5: Advanced Options
+
+Configure additional features for enhanced functionality:
+
+1. **Persistent Conversations**: Allow returning users to continue previous conversations
+2. **User Identification**: Connect known user information
+3. **Custom Variables**: Pass website data to the assistant for context
+4. **Analytics Integration**: Connect with Google Analytics or other tracking
+5. **Language Detection**: Automatically detect user language
+
+<img src="/images/widget-advanced.png" alt="Widget Advanced Options" />
+*[Screenshot placeholder: Advanced configuration options]*
+
+### Step 6: Human Handoff Settings
+
+Configure how conversations transfer to human agents:
+
+1. **Handoff Triggers**:
+   - User request
+   - AI confidence threshold
+   - Specific topics or keywords
+   - Number of messages exchanged
+
+2. **Handoff Behavior**:
+   - Notification method
+   - Queue messaging
+   - Routing rules
+   - Availability status
+
+<img src="/images/handoff-settings.png" alt="Human Handoff Settings" />
+*[Screenshot placeholder: Handoff configuration interface]*
+
+### Step 7: Generate and Install Code
+
+After configuration, you'll get a JavaScript snippet to add to your website:
+
+1. Click **Generate Code** button
+2. Copy the provided JavaScript code
+3. Add the code to your website before the closing `</body>` tag
+
+<CodeGroup>
+```html Website Integration Code
+<!-- Flowbotic Chat Widget -->
+<script>
+  window.flowboticSettings = {
+    widgetId: "your-widget-id",
+    primaryColor: "#3B82F6",
+    position: "bottom-right",
+    theme: "light"
+  };
+  
+  (function(d) {
+    var s = d.createElement("script");
+    s.src = "https://cdn.flowbotic.com/widget/v1/flowbotic.js";
+    s.async = 1;
+    d.getElementsByTagName("head")[0].appendChild(s);
+  })(document);
+</script>
+<!-- End Flowbotic Chat Widget -->
+```
+
+```jsx React Component
+import { FlowboticChat } from '@flowbotic/react';
+
+function MyApp() {
+  return (
+    <div className="my-app">
+      <h1>My Website</h1>
+      {/* Your other components */}
+      
+      <FlowboticChat 
+        widgetId="your-widget-id"
+        primaryColor="#3B82F6"
+        position="bottom-right"
+        theme="light"
+      />
+    </div>
+  );
+}
+```
+</CodeGroup>
+
+<img src="/images/widget-installation.png" alt="Widget Installation" />
+*[Screenshot placeholder: Code generation and installation instructions]*
+
+## Advanced Integration Options
+
+### Custom Styling with CSS
+
+You can further customize the widget appearance using CSS variables:
+
+```css
+:root {
+  --flowbotic-primary-color: #3B82F6;
+  --flowbotic-text-color: #1F2937;
+  --flowbotic-background-color: #FFFFFF;
+  --flowbotic-header-background: #F3F4F6;
+  --flowbotic-border-radius: 12px;
+  --flowbotic-font-family: 'Inter', sans-serif;
+  --flowbotic-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+```
+
+### JavaScript API
+
+The widget provides a JavaScript API for programmatic control:
+
+```javascript
+// Open the widget
+window.Flowbotic.open();
+
+// Close the widget
+window.Flowbotic.close();
+
+// Toggle widget visibility
+window.Flowbotic.toggle();
+
+// Send a message programmatically
+window.Flowbotic.sendMessage("Hello from my website!");
+
+// Set user identity
+window.Flowbotic.identify({
+  name: "John Doe",
+  email: "john@example.com",
+  userId: "12345",
+  metadata: {
+    plan: "premium",
+    signupDate: "2025-01-15"
+  }
+});
+
+// Set custom variables
+window.Flowbotic.setVariables({
+  currentPage: "/products",
+  cartValue: 99.99,
+  itemCount: 3
+});
+
+// Listen for events
+window.Flowbotic.on('ready', () => {
+  console.log('Chat widget loaded');
+});
+
+window.Flowbotic.on('message:received', (message) => {
+  console.log('New message:', message);
+});
+
+window.Flowbotic.on('conversation:ended', () => {
+  console.log('Conversation ended');
+});
+```
+
+### URL Parameters
+
+You can control the widget through URL parameters:
+
+- `?flowbotic-open=true` - Opens the widget automatically
+- `?flowbotic-message=Hello` - Pre-fills a user message
+- `?flowbotic-hide=true` - Temporarily hides the widget
+
+Example:
+```
+https://yourwebsite.com/contact?flowbotic-open=true&flowbotic-message=I%20need%20help%20with%20my%20order
+```
+
+## Testing Your Chat Widget
+
+After installation, thoroughly test your widget:
+
+1. **Basic Functionality**:
+   - Does the widget open and close properly?
+   - Does the assistant respond appropriately?
+   - Do all buttons and interactive elements work?
+
+2. **Appearance Testing**:
+   - Test on different devices (desktop, tablet, mobile)
+   - Verify the widget looks good in both light and dark modes
+   - Check that it respects your branding guidelines
+
+3. **Integration Testing**:
+   - Verify custom variables are properly passed
+   - Test user identification features
+   - Ensure analytics tracking works correctly
+
+4. **Conversation Flows**:
+   - Test common user scenarios
+   - Verify knowledge retrieval is accurate
+   - Test human handoff functionality
+
+<img src="/images/widget-testing.png" alt="Widget Testing" />
+*[Screenshot placeholder: Widget testing checklist or testing interface]*
+
+## Monitoring and Analytics
+
+Track the performance of your chat widget:
+
+1. Navigate to the **Analytics** section in the sidebar
+2. Select the **Channels** tab
+3. Choose your Website Chat Widget
+4. View metrics including:
+   - Conversation volume
+   - Average conversation length
+   - Most common topics
+   - User satisfaction ratings
+   - Handoff frequency
+
+<img src="/images/widget-analytics.png" alt="Widget Analytics" />
+*[Screenshot placeholder: Analytics dashboard for chat widget]*
+
+## Best Practices
+
+### Widget Placement and Design
+
+- **Consistent Placement**: Keep the widget in the same position across your site
+- **Contrasting Colors**: Ensure the widget button stands out without clashing
+- **Clear Purpose**: Make it obvious what the widget is for
+- **Non-Intrusive**: Avoid interrupting the user experience
+- **Mobile-Friendly**: Test thoroughly on mobile devices
+
+### Conversation Design
+
+- **Clear Welcome Message**: Set expectations in the initial message
+- **Conversational Tone**: Use natural language appropriate for your brand
+- **Helpful Fallbacks**: Have good responses for queries the assistant can't answer
+- **Guided Options**: Offer button choices for common inquiries
+- **Appropriate Length**: Keep responses concise for chat format
+
+### User Experience
+
+- **Fast Response Times**: Optimize for quick initial responses
+- **Typing Indicators**: Show when the assistant is "typing"
+- **Clear Human Handoff**: Make it obvious when a human takes over
+- **Persistent Context**: Remember returning users and their history
+- **Easy Restart**: Provide a way to start a new conversation
+
+### Performance Optimization
+
+- **Lazy Loading**: The widget script loads only when needed
+- **Caching Strategy**: Implement proper caching for assets
+- **Minimal Dependencies**: Avoid adding unnecessary code
+- **Compressed Assets**: Use minified code and optimized images
+- **Content Delivery Network**: Use the provided CDN for reliability
+
+## Troubleshooting
+
+<Accordion title="Widget Not Appearing">
+If the widget doesn't appear on your website:
+- Verify the code is properly added before the `</body>` tag
+- Check that your website domain is allowed in the widget settings
+- Look for JavaScript errors in your browser's developer console
+- Ensure there are no conflicting scripts blocking the widget
+- Try disabling ad blockers that might interfere with the script
+</Accordion>
+
+<Accordion title="Styling Issues">
+If the widget doesn't match your design:
+- Verify your primary color is set correctly
+- Check for CSS conflicts from your website
+- Try using the CSS variables for more precise control
+- Test on different browsers to identify browser-specific issues
+- Ensure your font choice is available and loaded properly
+</Accordion>
+
+<Accordion title="Assistant Not Responding">
+If the assistant isn't responding properly:
+- Check the assistant's status in the Flowbotic dashboard
+- Verify the assistant is correctly associated with the widget
+- Test the assistant directly in the testing interface
+- Check for knowledge retrieval issues
+- Verify API rate limits haven't been exceeded
+</Accordion>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Email Integration"
+    icon="envelope"
+    href="/communication-channels/email-integration"
+  >
+    Connect email accounts to your AI assistants
+  </Card>
+  <Card
+    title="Voice Calls"
+    icon="phone"
+    href="/communication-channels/voice-calls"
+  >
+    Set up phone numbers for voice interactions
+  </Card>
+  <Card
+    title="Analytics & Reporting"
+    icon="chart-line"
+    href="/analytics/conversation-metrics"
+  >
+    Track and analyze conversation performance
+  </Card>
+  <Card
+    title="Webchat API Reference"
+    icon="code"
+    href="/api-reference/widget"
+  >
+    Detailed API documentation for developers
+  </Card>
+</CardGroup>

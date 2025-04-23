@@ -1,0 +1,293 @@
+---
+title: 'Uploading Knowledge Files'
+description: 'Step-by-step guide to adding documents to your Knowledge Base'
+---
+
+# Uploading Knowledge Files
+
+Adding files to your Knowledge Base allows your AI assistants to access specific information when responding to queries. This guide walks you through the process of uploading, processing, and organizing knowledge files in Flowbotic.
+
+## Before You Begin
+
+Before uploading files, consider these preparation steps:
+
+- Review supported file formats (.pdf, .docx, .txt, .csv, etc.)
+- Organize your documents logically
+- Ensure files contain accurate, up-to-date information
+- Remove any sensitive or personal information not intended for sharing
+- Consider breaking large documents into smaller, topic-focused files
+
+## Uploading Files Through the Interface
+
+### Step 1: Access the Knowledge Base
+
+1. Navigate to the **Knowledge Base** section in the sidebar
+2. You'll see your existing knowledge files or an empty state if this is your first upload
+
+<img src="/images/knowledge-base-empty.png" alt="Empty Knowledge Base" />
+*[Screenshot placeholder: Empty Knowledge Base state with upload prompt]*
+
+### Step 2: Initiate Upload
+
+1. Click the **Upload Files** button in the top-right corner
+2. The file upload modal will appear
+
+<img src="/images/upload-knowledge-modal.png" alt="Upload Modal" />
+*[Screenshot placeholder: File upload modal]*
+
+### Step 3: Select Files
+
+You can add files in two ways:
+
+**Option 1: Drag and Drop**
+- Simply drag files from your computer and drop them into the designated area
+
+**Option 2: File Browser**
+- Click the **Browse Files** button
+- Navigate to the files on your computer
+- Select one or multiple files
+- Click **Open**
+
+<img src="/images/select-files.png" alt="Selecting Files" />
+*[Screenshot placeholder: File selection with multiple files highlighted]*
+
+### Step 4: Add File Information
+
+For each file, you can add or edit:
+
+1. **File Name**: The default is the original filename, but you can change it
+2. **Description**: Add a brief summary of the file's content
+3. **Category**: Select an existing category or create a new one
+4. **Tags**: Add relevant tags for better organization
+5. **Access Level**: Set who can access this knowledge (all assistants or specific ones)
+
+<img src="/images/file-information.png" alt="File Information Fields" />
+*[Screenshot placeholder: File metadata input fields]*
+
+### Step 5: Upload and Process
+
+1. Click the **Upload** button to start the process
+2. You'll see a progress indicator as files are uploaded
+3. After upload, files enter the processing queue
+4. Processing extracts text, indexes content, and prepares files for retrieval
+
+<img src="/images/upload-processing.png" alt="Upload Processing" />
+*[Screenshot placeholder: Upload and processing status indicators]*
+
+<Note>
+Processing time depends on file size and complexity. Most files process within minutes, but large or complex files may take longer.
+</Note>
+
+## Bulk Uploading Files
+
+For uploading many files at once:
+
+### Step 1: Prepare Files
+
+1. Organize files in a logical folder structure on your computer
+2. Consider using consistent naming conventions
+
+### Step 2: Bulk Upload
+
+1. Click the **Upload Files** button
+2. Select multiple files using Ctrl+Click (Windows) or Command+Click (Mac)
+3. Alternatively, select entire folders if your browser supports it
+4. Add basic information that applies to all files
+5. Click **Upload**
+
+### Step 3: Batch Edit (Optional)
+
+After bulk upload, you can edit multiple files at once:
+
+1. In the Knowledge Base, select multiple files using checkboxes
+2. Click the **Batch Edit** button
+3. Update common attributes like category or tags
+4. Click **Save Changes**
+
+<img src="/images/batch-edit.png" alt="Batch Edit Files" />
+*[Screenshot placeholder: Batch editing interface with multiple files selected]*
+
+## Uploading via API
+
+For programmatic uploading, Flowbotic offers API endpoints:
+
+<CodeGroup>
+```javascript Node.js SDK
+const { FlowboticClient } = require('flowbotic-sdk');
+
+// Initialize client
+const client = new FlowboticClient({
+  apiKey: 'your-api-key'
+});
+
+// Upload a file
+async function uploadKnowledgeFile() {
+  try {
+    const response = await client.knowledge.uploadFile({
+      file: '/path/to/file.pdf',
+      name: 'Product Manual v2',
+      description: 'Latest product manual with updated features',
+      category: 'Product Documentation',
+      tags: ['manual', 'product', 'v2']
+    });
+    
+    console.log('File uploaded successfully:', response.fileId);
+  } catch (error) {
+    console.error('Upload failed:', error);
+  }
+}
+
+uploadKnowledgeFile();
+```
+
+```python Python SDK
+from flowbotic import FlowboticClient
+
+# Initialize client
+client = FlowboticClient(api_key='your-api-key')
+
+# Upload a file
+def upload_knowledge_file():
+    try:
+        response = client.knowledge.upload_file(
+            file='/path/to/file.pdf',
+            name='Product Manual v2',
+            description='Latest product manual with updated features',
+            category='Product Documentation',
+            tags=['manual', 'product', 'v2']
+        )
+        
+        print(f'File uploaded successfully: {response.file_id}')
+    except Exception as e:
+        print(f'Upload failed: {str(e)}')
+
+upload_knowledge_file()
+```
+
+```curl cURL
+curl -X POST https://api.flowbotic.com/v1/knowledge/files \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: multipart/form-data" \
+  -F "file=@/path/to/file.pdf" \
+  -F "name=Product Manual v2" \
+  -F "description=Latest product manual with updated features" \
+  -F "category=Product Documentation" \
+  -F "tags=manual,product,v2"
+```
+</CodeGroup>
+
+<Note>
+For detailed API documentation, see the [Knowledge Base API Reference](/api-reference/knowledge/upload).
+</Note>
+
+## File Processing and Indexing
+
+After uploading, files go through several processing steps:
+
+1. **Text Extraction**: Text is extracted from the uploaded document
+2. **Content Analysis**: The system analyzes the text structure and content
+3. **Chunking**: Content is divided into manageable chunks for retrieval
+4. **Indexing**: Chunks are indexed for efficient searching
+5. **Embedding**: Neural embeddings are created for semantic search
+
+<img src="/images/indexing-process.png" alt="Indexing Process" />
+*[Screenshot placeholder: Visual representation of the indexing process]*
+
+You can view the processing status in the Knowledge Base:
+
+- **Queued**: File is waiting to be processed
+- **Processing**: File is currently being processed
+- **Indexed**: File has been successfully processed and is ready to use
+- **Failed**: Processing encountered an error
+
+## Troubleshooting Upload Issues
+
+<Accordion title="File Too Large">
+If you see a "File Too Large" error:
+- Check the file size limits for your plan
+- Try splitting the document into smaller files
+- Compress image-heavy PDFs to reduce size
+- Remove unnecessary content or formatting
+</Accordion>
+
+<Accordion title="Unsupported File Type">
+If you see an "Unsupported File Type" error:
+- Verify you're using a supported file format
+- Convert the file to a supported format (e.g., using Microsoft Office or Google Docs)
+- For specialized file types, extract the text content to a supported format
+</Accordion>
+
+<Accordion title="Processing Failed">
+If processing fails after upload:
+- Check for file corruption by opening the file on your computer
+- Ensure the file isn't password-protected or encrypted
+- Try re-saving the file in a different format
+- For complex PDFs, try converting to text or Word format first
+</Accordion>
+
+<Accordion title="Text Extraction Issues">
+If text isn't properly extracted:
+- Ensure the PDF contains actual text (not just images of text)
+- For scanned documents, use OCR software before uploading
+- Check for unusual fonts or encoding issues
+- Try saving in a different format or from a different application
+</Accordion>
+
+## Best Practices for File Uploading
+
+### File Preparation
+
+- **Clear Structure**: Use headings, lists, and sections for clear organization
+- **Searchable Text**: Ensure documents contain actual text, not just images of text
+- **Consistent Formatting**: Use consistent formatting for similar types of information
+- **Appropriate File Size**: Keep files under 20MB for optimal processing
+- **Proper Encoding**: Use standard UTF-8 encoding for text-based files
+
+### Organizational Practices
+
+- **Logical Categories**: Organize files into intuitive categories
+- **Consistent Naming**: Use a consistent naming convention
+- **Descriptive Tags**: Add relevant tags to improve searchability
+- **Complete Metadata**: Fill out all metadata fields thoroughly
+- **Version Control**: Include version information in filenames or descriptions
+
+### Maintenance
+
+- **Regular Updates**: Replace outdated files with current versions
+- **Periodic Review**: Schedule regular reviews of your Knowledge Base
+- **Remove Duplicates**: Eliminate redundant or duplicate information
+- **Track Usage**: Monitor which files are being used and which aren't
+- **Gather Feedback**: Use assistant performance to identify knowledge gaps
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Managing Knowledge"
+    icon="folder-tree"
+    href="/knowledge-base/management"
+  >
+    Learn how to organize and maintain your Knowledge Base
+  </Card>
+  <Card
+    title="Knowledge Best Practices"
+    icon="lightbulb"
+    href="/knowledge-base/best-practices"
+  >
+    Tips for optimizing your knowledge content
+  </Card>
+  <Card
+    title="Associate with Assistants"
+    icon="link"
+    href="/ai-assistants/overview"
+  >
+    Connect knowledge to your AI assistants
+  </Card>
+  <Card
+    title="API Integration"
+    icon="code"
+    href="/api-reference/knowledge/upload"
+  >
+    Learn about programmatic Knowledge Base management
+  </Card>
+</CardGroup>

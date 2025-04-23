@@ -1,0 +1,309 @@
+---
+title: 'Creating Voice Assistants'
+description: 'Build AI-powered voice assistants that handle phone calls with natural conversations'
+---
+
+# Creating Voice Assistants
+
+Voice assistants enable natural, spoken conversations with callers over the phone. This guide walks you through the process of creating, configuring, and deploying a voice assistant in Flowbotic.
+
+## Before You Begin
+
+Before creating a voice assistant, consider:
+
+- The primary purpose of your voice assistant (customer support, appointment booking, etc.)
+- The types of inquiries it will handle
+- Whether you need to integrate with existing phone systems
+- The voice and language preferences appropriate for your audience
+
+## Creating a New Voice Assistant
+
+### Step 1: Initiate Creation
+
+1. Navigate to the **Assistants** section in the sidebar
+2. Click the **+ Create Assistant** button
+3. Select **Voice** as the assistant type
+4. Click **Continue**
+
+<img src="/images/create-voice-assistant.png" alt="Create Voice Assistant" />
+*[Screenshot placeholder: Assistant creation screen with Voice type selected]*
+
+### Step 2: Basic Configuration
+
+In the first section of the setup wizard:
+
+1. **Name**: Give your assistant a descriptive name (e.g., "Phone Support Assistant")
+2. **Description**: Add a brief description of the assistant's purpose
+3. **Language**: Choose the primary language for your assistant
+
+<Note>
+Voice assistants currently support English, Spanish, German, French, and Japanese. Additional languages are being added regularly.
+</Note>
+
+### Step 3: Voice Model Configuration
+
+Voice assistants have specific configuration options for speech:
+
+1. **Voice Selection**:
+   - Choose from multiple voice options (gender, accent, tone)
+   - Listen to voice samples
+   - Adjust speaking rate and pitch if needed
+
+2. **Speech Recognition**:
+   - Select speech recognition model
+   - Configure dialect settings (if applicable)
+   - Set noise tolerance level
+
+<img src="/images/voice-model-selection.png" alt="Voice Model Selection" />
+*[Screenshot placeholder: Voice selection interface with sample player]*
+
+### Step 4: AI Model Configuration
+
+Configure the AI behavior settings:
+
+1. **Instructions**: Write detailed instructions for how your assistant should handle calls:
+   - Define its role and purpose
+   - Specify how to greet callers
+   - Set conversation guidelines
+   - Determine when to transfer to a human
+
+2. **Model**: Select the AI model to power your assistant
+   - GPT-4: Best for complex, nuanced conversations
+   - GPT-3.5: Good for straightforward inquiries
+
+3. **Temperature**: Adjust the creativity level (0.0-1.0)
+   - Lower values: More consistent, predictable responses
+   - Higher values: More varied, conversational responses
+
+<img src="/images/voice-ai-settings.png" alt="Voice AI Settings" />
+*[Screenshot placeholder: AI model configuration for voice assistant]*
+
+<Accordion title="Example Voice Assistant Instructions">
+```
+You are a phone support assistant for Acme Inc., answering customer calls about our products and services.
+
+When answering calls:
+1. Greet the caller politely: "Thank you for calling Acme Inc. This is Alex, your virtual assistant. How can I help you today?"
+2. Listen carefully to their inquiry
+3. Provide clear, concise answers
+4. Speak in a natural, conversational tone
+5. Use simple language and avoid jargon
+
+You can help with:
+- Product information and pricing
+- Order status inquiries (if customer provides order number)
+- Store locations and hours
+- Basic troubleshooting for common product issues
+- Scheduling appointments with sales representatives
+
+If a caller asks about order status:
+- Ask for their order number
+- Only provide information if they can verify the order number
+- If they don't have the order number, offer to transfer them to a representative
+
+Transfer the call to a human representative when:
+- The caller explicitly requests to speak with a human
+- The inquiry is too complex for you to handle
+- The caller seems frustrated or upset
+- After three attempts to understand an unclear request
+- For billing disputes or account-specific issues
+
+When transferring a call:
+1. Inform the caller: "I'll connect you with a representative who can better assist you. Please hold for a moment."
+2. Summarize the conversation for the agent who will take the call
+
+Always maintain a professional, helpful demeanor and speak at a moderate pace with clear pronunciation.
+```
+</Accordion>
+
+### Step 5: Knowledge Base Connection
+
+Connect relevant knowledge to your voice assistant:
+
+1. Click the **Knowledge** tab in the setup wizard
+2. Select files from your Knowledge Base to associate with this assistant
+3. Adjust the knowledge retrieval settings:
+   - **Relevance Threshold**: Set how closely content must match (0.0-1.0)
+   - **Number of References**: How many knowledge snippets to include
+
+<img src="/images/voice-knowledge-connection.png" alt="Voice Knowledge Connection" />
+*[Screenshot placeholder: Knowledge connection interface for voice assistant]*
+
+### Step 6: Call Handling
+
+Configure how your assistant manages calls:
+
+1. **Greeting Message**: Set the initial message spoken when answering calls
+2. **Call Flow**:
+   - Linear: Follow a specific conversation path
+   - Open-ended: Allow natural conversation flow
+   - IVR-style: Offer menu options to callers
+
+3. **Call Duration**: Set maximum call length (optional)
+4. **Silence Handling**: Configure how to respond to silence or unclear speech
+5. **Background Music**: Add hold music if desired
+
+<img src="/images/call-handling-settings.png" alt="Call Handling Settings" />
+*[Screenshot placeholder: Call flow configuration screen]*
+
+### Step 7: Human Transfer
+
+Configure when and how to transfer calls to human agents:
+
+1. **Transfer Triggers**:
+   - Explicit request from caller
+   - Specific keywords or phrases
+   - Call complexity threshold
+   - Number of misunderstandings
+   - Call duration
+
+2. **Transfer Settings**:
+   - Forward number configuration
+   - Agent availability rules
+   - Queue behavior
+   - Voicemail options
+
+3. **Transfer Message**: Customize what the assistant says when transferring
+
+<img src="/images/voice-transfer-settings.png" alt="Voice Transfer Settings" />
+*[Screenshot placeholder: Call transfer configuration screen]*
+
+### Step 8: Advanced Settings
+
+Configure additional voice-specific options:
+
+1. **Call Recording**: Enable/disable recording of calls
+2. **Transcription**: Configure automatic transcription of calls
+3. **Sentiment Analysis**: Enable real-time analysis of caller sentiment
+4. **Custom DTMF Handling**: Configure responses to keypad inputs
+5. **Post-Call Survey**: Set up satisfaction surveys after calls
+
+### Step 9: Finalize Creation
+
+1. Review all settings across the different tabs
+2. Click **Create Assistant** to save your configuration
+3. You'll be redirected to the assistant details page
+
+## Setting Up Phone Number
+
+After creating your voice assistant, you'll need to associate it with a phone number:
+
+1. Navigate to the **Channels** tab on your assistant's page
+2. Click **+ Add Channel** and select **Phone Number**
+3. Choose how to obtain a number:
+   - **Get New Number**: Purchase a new number from available options
+   - **Use Existing Number**: Forward an existing number to our system
+   - **SIP Integration**: Connect via SIP to your existing phone system
+
+4. If getting a new number:
+   - Select your preferred country code
+   - Choose from available numbers
+   - Select number type (local, toll-free, etc.)
+
+5. Complete the setup and associate the number with your assistant
+
+<img src="/images/phone-number-setup.png" alt="Phone Number Setup" />
+*[Screenshot placeholder: Phone number acquisition interface]*
+
+## Testing Your Voice Assistant
+
+Before fully deploying your voice assistant:
+
+1. On the assistant details page, click the **Test** tab
+2. Use the test call feature to simulate a phone call
+3. Speak naturally and test different scenarios
+4. Verify that knowledge retrieval works correctly
+5. Test the transfer functionality if configured
+
+<img src="/images/test-voice-call.png" alt="Test Voice Call" />
+*[Screenshot placeholder: Voice testing interface with call simulation]*
+
+## Best Practices for Voice Assistants
+
+### Voice-Specific Instructions
+
+- Emphasize natural conversational flow
+- Include phonetic spellings for unusual words or brand names
+- Keep sentences shorter than in written communication
+- Avoid complex structures that may be difficult to follow when spoken
+
+### Voice Selection
+
+- Choose a voice that represents your brand personality
+- Consider your audience's preferences and expectations
+- Test the voice with actual content for natural flow
+- Adjust speaking rate to match your typical caller expectations
+
+### Call Flow Design
+
+- Begin with a clear, welcoming greeting
+- For first-time callers, briefly explain that they're speaking to an AI
+- Design for conversation branches based on common inquiries
+- Plan for interruptions and topic changes
+- Create natural-sounding transitions between topics
+
+### Error Handling
+
+- Develop specific responses for misunderstandings
+- Create recovery paths when the assistant can't help
+- Configure clear transfer messaging
+- Prepare for background noise and poor connections
+
+## Troubleshooting
+
+<Accordion title="Poor Speech Recognition">
+If your assistant has trouble understanding callers:
+- Adjust the speech recognition sensitivity
+- Check language and dialect settings
+- Consider using more directed questions
+- Add common variations of key terms to your knowledge base
+</Accordion>
+
+<Accordion title="Unnatural Speech Patterns">
+If the voice sounds robotic or unnatural:
+- Try a different voice model
+- Adjust the speaking rate (often slightly slower is better)
+- Review the assistant's instructions for conversational language
+- Break long responses into shorter segments
+</Accordion>
+
+<Accordion title="Call Connection Issues">
+If calls aren't connecting properly:
+- Verify phone number configuration
+- Check network requirements are met
+- Ensure firewall settings allow voice traffic
+- For SIP integration, verify proper protocol configuration
+</Accordion>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Voice Call Integration"
+    icon="phone-volume"
+    href="/communication-channels/voice-calls"
+  >
+    Learn more about advanced voice call configurations
+  </Card>
+  <Card
+    title="Voice Analytics"
+    icon="chart-line"
+    href="/analytics/conversation-metrics"
+  >
+    Understand call performance and quality metrics
+  </Card>
+  <Card
+    title="Testing Assistants"
+    icon="vial"
+    href="/ai-assistants/testing-assistants"
+  >
+    Comprehensive testing approaches for all assistant types
+  </Card>
+  <Card
+    title="IVR Integration"
+    icon="sitemap"
+    href="/integrations/voice-integration"
+  >
+    Connect with existing IVR systems
+  </Card>
+</CardGroup>

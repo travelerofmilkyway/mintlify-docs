@@ -1,0 +1,326 @@
+---
+title: 'Ticket Management Overview'
+description: 'Understanding the ticket management system in Flowbotic'
+---
+
+# Ticket Management Overview
+
+The Flowbotic Ticket Management system provides a centralized way to track, organize, and resolve customer inquiries that require human attention. This guide introduces the key concepts and features of the ticket system.
+
+## What is Ticket Management?
+
+Ticket Management in Flowbotic is a system that:
+
+- Tracks customer inquiries that need human intervention
+- Organizes issues by priority, status, and assigned agents
+- Maintains conversation history across multiple interactions
+- Facilitates collaboration between team members
+- Provides analytics and reporting on resolution times and team performance
+
+<img src="/images/ticket-management-overview.png" alt="Ticket Management Overview" />
+*[Screenshot placeholder: Ticket management dashboard with various tickets]*
+
+## Key Ticket Components
+
+### Ticket Properties
+
+Each ticket in the system includes several key properties:
+
+- **Ticket ID**: Unique identifier for tracking purposes
+- **Subject**: Brief summary of the issue
+- **Status**: Current state (Open, In Progress, Waiting, Resolved, Closed)
+- **Priority**: Importance level (Low, Medium, High, Urgent)
+- **Source**: Origin channel (Email, Chat, Voice, Manual)
+- **Created Date**: When the ticket was first created
+- **Last Updated**: When the ticket was last modified
+- **Due Date**: When the ticket should be resolved (optional)
+
+### Ticket Content
+
+The content of a ticket includes:
+
+- **Initial Request**: The original inquiry from the customer
+- **Conversation History**: All messages between customers and agents
+- **Internal Notes**: Private comments visible only to team members
+- **Attachments**: Files shared during the conversation
+- **AI Assistant Interactions**: Any automated responses provided before escalation
+
+<img src="/images/ticket-detail-view.png" alt="Ticket Detail View" />
+*[Screenshot placeholder: Detailed ticket view showing conversation history]*
+
+### Ticket Metadata
+
+Additional data associated with tickets:
+
+- **Tags**: Labels for categorizing and filtering
+- **Custom Fields**: Organization-specific attributes
+- **Related Tickets**: Links to associated issues
+- **Audit Trail**: Record of all actions taken on the ticket
+
+## Ticket Lifecycle
+
+Tickets typically follow this lifecycle:
+
+<img src="/images/ticket-lifecycle.png" alt="Ticket Lifecycle" />
+*[Screenshot placeholder: Visual diagram of ticket lifecycle stages]*
+
+1. **Creation**:
+   - Generated automatically when AI escalates a conversation
+   - Created manually by agents
+   - Submitted through email or other channels
+
+2. **Triage**:
+   - Assignment to the appropriate agent or team
+   - Priority setting
+   - Initial categorization and tagging
+
+3. **Working**:
+   - Agent investigation and response
+   - Customer communication
+   - Internal collaboration
+
+4. **Resolution**:
+   - Problem solved
+   - Final communication with customer
+   - Documentation of solution
+
+5. **Closure**:
+   - Ticket marked as closed
+   - Satisfaction survey (optional)
+   - Analytics updated
+
+## Accessing Ticket Management
+
+To access the Ticket Management system:
+
+1. Navigate to the **Tickets** section in the sidebar
+2. The default view shows your assigned tickets
+3. Use the filters and search to find specific tickets
+4. Click on any ticket to view its details
+
+<img src="/images/ticket-navigation.png" alt="Ticket Navigation" />
+*[Screenshot placeholder: Ticket section navigation with filters]*
+
+## Views and Filters
+
+Tickets can be organized in various ways:
+
+### Default Views
+
+The system includes several predefined views:
+
+- **My Tickets**: Tickets assigned to the current user
+- **Unassigned**: Tickets not yet assigned to any agent
+- **All Open**: All tickets that aren't closed or resolved
+- **Recently Updated**: Tickets with recent activity
+- **Due Today**: Tickets with a due date of today
+
+### Custom Views
+
+Create personalized views based on specific criteria:
+
+1. Click the **+ New View** button
+2. Set filtering criteria:
+   - Status conditions
+   - Priority levels
+   - Assignment conditions
+   - Date ranges
+   - Tags or custom fields
+3. Save and name your view
+4. Share with team members if desired
+
+<img src="/images/custom-ticket-views.png" alt="Custom Ticket Views" />
+*[Screenshot placeholder: Custom view creation interface]*
+
+### Quick Filters
+
+Apply temporary filters to any view:
+
+- Filter by status, priority, or channel
+- Search by ticket ID, customer name, or content
+- Filter by date range
+- Show only tickets with specific tags
+
+## Creating and Managing Tickets
+
+### Creating Tickets Manually
+
+To create a ticket manually:
+
+1. Click the **+ New Ticket** button
+2. Fill in the required information:
+   - Customer details
+   - Subject
+   - Description
+   - Priority
+   - Category
+3. Add any relevant attachments
+4. Click **Create Ticket**
+
+<img src="/images/create-ticket.png" alt="Create Ticket Form" />
+*[Screenshot placeholder: New ticket creation form]*
+
+### Automatic Ticket Creation
+
+Tickets are automatically created when:
+
+- A conversation is escalated from an AI assistant
+- An email is received that requires human attention
+- A voice call is transferred to human support
+
+The system preserves the full conversation history for context.
+
+### Ticket Assignment
+
+Tickets can be assigned in several ways:
+
+- **Manual Assignment**: Agents or managers explicitly assign tickets
+- **Self-Assignment**: Agents claim tickets from the unassigned queue
+- **Automatic Assignment**: Based on rules like round-robin or load balancing
+- **Skills-Based Routing**: Based on agent expertise and ticket category
+
+<img src="/images/ticket-assignment.png" alt="Ticket Assignment" />
+*[Screenshot placeholder: Assignment options for a ticket]*
+
+### Working with Tickets
+
+When working on a ticket:
+
+1. Click the ticket to open the detail view
+2. Review the conversation history and ticket information
+3. Update the status to "In Progress"
+4. Add responses or internal notes
+5. Change properties as needed (priority, due date, etc.)
+6. Add tags or update custom fields
+7. Collaborate with team members through internal notes
+8. Resolve the ticket when complete
+
+## Team Collaboration
+
+The ticket system facilitates team collaboration:
+
+### Internal Notes
+
+Add private comments visible only to team members:
+
+- Use `@mentions` to notify specific team members
+- Include links to relevant resources
+- Suggest approaches or ask questions
+- Document troubleshooting steps
+
+<img src="/images/internal-notes.png" alt="Internal Notes" />
+*[Screenshot placeholder: Internal notes section of a ticket]*
+
+### Ticket Transfers
+
+Transfer tickets between agents or teams:
+
+1. Open the ticket
+2. Click the **Transfer** button
+3. Select the destination agent or team
+4. Add a note explaining the transfer reason
+5. Click **Transfer Ticket**
+
+### Watching Tickets
+
+Stay informed about tickets without being assigned:
+
+1. Open a ticket
+2. Click the **Watch** button
+3. Receive notifications about updates to that ticket
+
+## Ticket Analytics and Reporting
+
+The system provides extensive analytics:
+
+<img src="/images/ticket-analytics.png" alt="Ticket Analytics" />
+*[Screenshot placeholder: Ticket analytics dashboard]*
+
+Key metrics include:
+
+- **Volume**: Number of tickets created over time
+- **Resolution Time**: Average time to resolve tickets
+- **First Response Time**: Time until first agent response
+- **Resolution Rate**: Percentage of tickets resolved
+- **Agent Performance**: Individual agent metrics
+- **Channel Distribution**: Tickets by source channel
+- **Topic Analysis**: Common issues and categories
+
+Access detailed reports:
+
+1. Navigate to the **Analytics** section in the sidebar
+2. Select the **Tickets** tab
+3. Choose from predefined reports or create custom reports
+4. Filter by date range, agents, or other criteria
+5. Export reports as needed
+
+## Ticket Integration with AI Assistants
+
+Tickets are tightly integrated with AI assistants:
+
+- **Seamless Escalation**: Preserve context when conversations escalate
+- **AI Suggestions**: Get response suggestions from AI while working on tickets
+- **Automated Categorization**: AI helps categorize and prioritize tickets
+- **Knowledge Base Integration**: Easily access relevant knowledge while responding
+
+<img src="/images/ai-ticket-integration.png" alt="AI Ticket Integration" />
+*[Screenshot placeholder: AI assistant suggestions in ticket interface]*
+
+## Best Practices
+
+### Ticket Organization
+
+- **Clear Naming**: Use descriptive ticket subjects
+- **Consistent Tagging**: Develop and follow a tagging system
+- **Thorough Documentation**: Include all relevant information
+- **Proper Prioritization**: Accurately set priority levels
+- **Due Dates**: Set realistic due dates when appropriate
+
+### Efficient Resolution
+
+- **First Response**: Acknowledge tickets promptly
+- **Regular Updates**: Keep customers informed of progress
+- **Template Usage**: Use response templates for common issues
+- **Knowledge Sharing**: Document solutions for future reference
+- **Follow-up**: Check customer satisfaction after resolution
+
+### Team Workflow
+
+- **Clear Ownership**: Ensure each ticket has a clear owner
+- **Escalation Paths**: Define when and how to escalate difficult issues
+- **SLA Monitoring**: Track performance against service level agreements
+- **Workload Balancing**: Distribute tickets evenly across the team
+- **Regular Reviews**: Periodically review closed tickets for quality and insights
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Creating Tickets"
+    icon="ticket-alt"
+    href="/ticket-management/creating-tickets"
+  >
+    Learn how to create and configure tickets
+  </Card>
+  <Card
+    title="Ticket Workflow"
+    icon="tasks"
+    href="/ticket-management/workflow"
+  >
+    Understand the complete ticket lifecycle
+  </Card>
+  <Card
+    title="Views & Filters"
+    icon="filter"
+    href="/ticket-management/views-filters"
+  >
+    Master ticket organization and filtering
+  </Card>
+  <Card
+    title="Ticket Analytics"
+    icon="chart-line"
+    href="/analytics/conversation-metrics"
+  >
+    Track and analyze ticket performance
+  </Card>
+</CardGroup>

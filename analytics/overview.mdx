@@ -1,0 +1,359 @@
+---
+title: 'Analytics & Reporting Overview'
+description: 'Understanding the analytics and reporting capabilities in Flowbotic'
+---
+
+# Analytics & Reporting Overview
+
+Flowbotic's analytics and reporting tools provide comprehensive insights into your AI assistants' performance, conversation metrics, and overall system usage. This guide introduces the key analytics features and how to use them effectively.
+
+## Analytics Dashboard
+
+The Analytics Dashboard provides a high-level overview of your platform's performance through visualizations and key metrics.
+
+<img src="/images/analytics-dashboard.png" alt="Analytics Dashboard" />
+*[Screenshot placeholder: Main analytics dashboard with various charts and metrics]*
+
+### Accessing Analytics
+
+1. Navigate to the **Analytics** section in the sidebar
+2. Select from various report types:
+   - Overview Dashboard
+   - Assistant Performance
+   - Conversation Metrics
+   - Ticket Analytics
+   - Channel Performance
+
+### Dashboard Customization
+
+Customize the analytics dashboard to focus on metrics most relevant to your needs:
+
+1. Click the **Customize** button in the top-right corner
+2. Select which widgets to display
+3. Arrange the layout as desired
+4. Save your custom configuration
+
+<img src="/images/dashboard-customization.png" alt="Dashboard Customization" />
+*[Screenshot placeholder: Dashboard customization interface]*
+
+## Key Performance Metrics
+
+The analytics system tracks several important categories of metrics:
+
+### Conversation Metrics
+
+Track the volume and flow of conversations:
+
+- **Total Conversations**: Number of conversations over time
+- **Average Duration**: Typical length of conversations
+- **Message Volume**: Total messages exchanged
+- **Peak Hours**: Busiest times for conversations
+- **Channel Distribution**: Conversations by channel (chat, email, voice)
+
+<img src="/images/conversation-metrics.png" alt="Conversation Metrics" />
+*[Screenshot placeholder: Conversation metrics visualization]*
+
+### Resolution Metrics
+
+Measure how effectively issues are being resolved:
+
+- **Resolution Rate**: Percentage of conversations resolved without human intervention
+- **First Response Time**: Time until first assistant response
+- **Resolution Time**: Time to fully resolve inquiries
+- **Escalation Rate**: Percentage of conversations escalated to humans
+- **Self-Service Rate**: Issues resolved without human intervention
+
+### User Satisfaction
+
+Gauge how users perceive their experience:
+
+- **Satisfaction Scores**: Explicit ratings from users
+- **Sentiment Analysis**: Detected sentiment in conversations
+- **Feedback Comments**: Qualitative feedback from users
+- **Return Rate**: Users who engage with assistants multiple times
+
+### Assistant Performance
+
+Evaluate individual assistant effectiveness:
+
+- **Response Accuracy**: How accurately assistants answer queries
+- **Knowledge Retrieval**: Effectiveness of knowledge base utilization
+- **Confidence Scores**: Assistant's confidence in its responses
+- **Learning Progress**: Improvement over time
+
+<img src="/images/assistant-performance.png" alt="Assistant Performance" />
+*[Screenshot placeholder: Assistant performance metrics for different assistants]*
+
+## Report Types
+
+Flowbotic offers several specialized reports:
+
+### Assistant Reports
+
+Detailed analysis of individual assistant performance:
+
+- Performance trends over time
+- Common topics and questions
+- Knowledge utilization statistics
+- Comparison between assistants
+
+### Conversation Analysis
+
+Deep dive into conversation patterns:
+
+- Conversation flow visualizations
+- Topic clustering and trend analysis
+- User engagement patterns
+- Message timing and frequency
+
+<img src="/images/conversation-analysis.png" alt="Conversation Analysis" />
+*[Screenshot placeholder: Conversation analysis with topic clustering]*
+
+### Channel Reports
+
+Compare performance across different communication channels:
+
+- Channel usage statistics
+- Cross-channel performance comparison
+- Channel-specific metrics
+- User preferences by demographic
+
+### Ticket Analytics
+
+For conversations escalated to human agents:
+
+- Ticket volume and trends
+- Resolution times by agent and team
+- First response time analysis
+- Escalation reasons and patterns
+
+<img src="/images/ticket-analytics.png" alt="Ticket Analytics" />
+*[Screenshot placeholder: Ticket analytics dashboard]*
+
+## Filtering and Segmentation
+
+Refine analytics data for more focused insights:
+
+### Time Period Selection
+
+Analyze data from different time frames:
+
+- Predefined ranges (Today, Yesterday, Last 7 Days, Last 30 Days)
+- Custom date ranges
+- Comparative periods (This Month vs. Last Month)
+- Year-over-year comparison
+
+<img src="/images/time-period-selection.png" alt="Time Period Selection" />
+*[Screenshot placeholder: Date range selector interface]*
+
+### Data Segmentation
+
+Break down metrics by different dimensions:
+
+- By assistant
+- By channel
+- By user attributes (location, device type, etc.)
+- By conversation topic
+- By custom tags
+
+### Advanced Filtering
+
+Create complex filters to focus on specific data:
+
+- Conversation duration
+- User satisfaction scores
+- Escalation status
+- Knowledge categories used
+- Custom attributes
+
+## Data Visualization
+
+Flowbotic presents analytics using various visualization types:
+
+- **Line Charts**: Track metrics over time
+- **Bar Charts**: Compare values across categories
+- **Pie/Donut Charts**: Show distribution and proportions
+- **Heat Maps**: Visualize patterns in two dimensions
+- **Tables**: Display detailed numeric data
+- **Sankey Diagrams**: Visualize conversation flows
+
+<img src="/images/data-visualizations.png" alt="Data Visualizations" />
+*[Screenshot placeholder: Various chart types in the analytics interface]*
+
+## Scheduled Reports
+
+Set up automated report delivery:
+
+1. Navigate to the **Reports** tab in Analytics
+2. Click **+ Scheduled Report**
+3. Select report type and configuration
+4. Choose delivery frequency (daily, weekly, monthly)
+5. Add recipients and delivery format (PDF, CSV, HTML)
+6. Set custom message (optional)
+7. Click **Save**
+
+<img src="/images/scheduled-reports.png" alt="Scheduled Reports" />
+*[Screenshot placeholder: Scheduled report configuration]*
+
+## Data Export
+
+Export analytics data for external analysis:
+
+1. Navigate to the desired report
+2. Click the **Export** button
+3. Select format:
+   - CSV: For spreadsheet analysis
+   - PDF: For sharing and presentation
+   - JSON: For programmatic processing
+4. Choose data granularity and time range
+5. Click **Export**
+
+## API Access
+
+Access analytics data programmatically through the Flowbotic API:
+
+<CodeGroup>
+```javascript Node.js SDK
+const { FlowboticClient } = require('flowbotic-sdk');
+
+// Initialize client
+const client = new FlowboticClient({
+  apiKey: 'your-api-key'
+});
+
+// Get analytics data
+async function getConversationAnalytics() {
+  try {
+    const analytics = await client.analytics.getConversations({
+      startDate: '2025-01-01',
+      endDate: '2025-01-31',
+      assistantId: 'asst_12345', // optional
+      channel: 'webchat', // optional
+      metrics: ['volume', 'resolution_rate', 'satisfaction']
+    });
+    
+    console.log('Analytics data:', analytics);
+  } catch (error) {
+    console.error('Failed to fetch analytics:', error);
+  }
+}
+
+getConversationAnalytics();
+```
+
+```python Python SDK
+from flowbotic import FlowboticClient
+from datetime import datetime, timedelta
+
+# Initialize client
+client = FlowboticClient(api_key='your-api-key')
+
+# Calculate date range
+end_date = datetime.now()
+start_date = end_date - timedelta(days=30)
+
+# Get analytics data
+def get_assistant_analytics():
+    try:
+        analytics = client.analytics.get_assistants(
+            start_date=start_date.strftime('%Y-%m-%d'),
+            end_date=end_date.strftime('%Y-%m-%d'),
+            assistant_id='asst_12345',  # optional
+            metrics=['accuracy', 'usage', 'response_time']
+        )
+        
+        print(f'Assistant analytics: {analytics}')
+    except Exception as e:
+        print(f'Error fetching analytics: {str(e)}')
+
+get_assistant_analytics()
+```
+</CodeGroup>
+
+<Note>
+For detailed API documentation, see the [Analytics API Reference](/api-reference/analytics).
+</Note>
+
+## Privacy and Data Handling
+
+Analytics data is processed with privacy in mind:
+
+- **Data Anonymization**: User identifiers are anonymized
+- **Data Retention**: Configure how long analytics data is stored
+- **Access Controls**: Restrict analytics access to authorized users
+- **Compliance**: Analytics processing complies with major regulations
+
+## Using Analytics Effectively
+
+### Identifying Trends
+
+Look for patterns and changes over time:
+
+- Increasing or decreasing conversation volumes
+- Changes in resolution rates
+- Shifts in common topics
+- Variations in user satisfaction
+
+### Performance Optimization
+
+Use analytics to improve your assistants:
+
+- Identify knowledge gaps from frequently escalated topics
+- Optimize instructions based on misunderstood queries
+- Add training data for common scenarios
+- Adjust response parameters for better engagement
+
+<img src="/images/performance-optimization.png" alt="Performance Optimization" />
+*[Screenshot placeholder: Assistant optimization recommendations]*
+
+### Business Insights
+
+Extract valuable business intelligence:
+
+- Discover frequently asked questions
+- Identify product or service issues
+- Understand customer preferences
+- Track campaign effectiveness
+- Measure impact of product changes
+
+### Comparative Analysis
+
+Compare performance across different dimensions:
+
+- Between different assistants
+- Across communication channels
+- Before and after updates
+- Against industry benchmarks
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Assistant Performance"
+    icon="robot"
+    href="/analytics/assistant-performance"
+  >
+    Detailed metrics for evaluating assistant effectiveness
+  </Card>
+  <Card
+    title="Conversation Metrics"
+    icon="comments"
+    href="/analytics/conversation-metrics"
+  >
+    Analyzing conversation patterns and outcomes
+  </Card>
+  <Card
+    title="Custom Reports"
+    icon="file-chart-line"
+    href="/analytics/custom-reports"
+  >
+    Creating tailored reports for specific needs
+  </Card>
+  <Card
+    title="Exporting Data"
+    icon="file-export"
+    href="/analytics/exporting-data"
+  >
+    Options for exporting analytics data
+  </Card>
+</CardGroup>

@@ -1,0 +1,309 @@
+---
+title: 'Creating Email Assistants'
+description: 'Build AI-powered assistants that automatically handle email communications'
+---
+
+# Creating Email Assistants
+
+Email assistants help automate your email communications by monitoring inboxes, understanding inquiries, and providing appropriate responses. This guide explains how to create, configure, and manage an email assistant in Flowbotic.
+
+## Before You Begin
+
+Before creating an email assistant, you should:
+
+- Identify which email address(es) the assistant will monitor
+- Determine the types of emails the assistant should handle
+- Prepare knowledge documents relevant to common inquiries
+- Consider the tone and style appropriate for your brand's emails
+
+## Creating a New Email Assistant
+
+### Step 1: Initiate Creation
+
+1. Navigate to the **Assistants** section in the sidebar
+2. Click the **+ Create Assistant** button
+3. Select **Email** as the assistant type
+4. Click **Continue**
+
+<img src="/images/create-email-assistant.png" alt="Create Email Assistant" />
+*[Screenshot placeholder: Assistant creation screen with Email type selected]*
+
+### Step 2: Basic Configuration
+
+In the first section of the setup wizard:
+
+1. **Name**: Give your assistant a descriptive name (e.g., "Support Email Assistant")
+2. **Description**: Add a brief description of the assistant's purpose
+3. **Language**: Choose the primary language for your assistant
+
+<Note>
+The name you choose is for internal identification only; your email recipients will see the actual name configured in your email account settings.
+</Note>
+
+### Step 3: AI Model Configuration
+
+Configure the AI model settings:
+
+1. **Instructions**: Write detailed instructions for how your assistant should handle emails:
+   - Specify the types of inquiries it should handle
+   - Define its tone and writing style
+   - Set guidelines for when to escalate to a human
+   - Include any specific company policies or procedures
+
+2. **Model**: Select the AI model to power your assistant
+   - GPT-4: Best for complex, nuanced email communications
+   - GPT-3.5: Good for straightforward inquiries
+
+3. **Temperature**: Adjust the creativity level (0.0-1.0)
+   - Lower values (0.2-0.4): More consistent, formal responses
+   - Higher values (0.6-0.8): More varied, conversational responses
+
+<img src="/images/email-model-settings.png" alt="Email Assistant Model Settings" />
+*[Screenshot placeholder: Model configuration screen for email assistant]*
+
+<Accordion title="Example Email Assistant Instructions">
+```
+You are an email assistant for Acme Inc., handling customer support inquiries.
+
+Your responsibilities:
+- Answer questions about products and services
+- Provide order status updates when given an order number
+- Handle return and exchange requests
+- Forward complex technical issues to the technical team
+
+Your response style should be:
+- Professional but friendly
+- Concise but thorough
+- Formatted with proper email etiquette (greeting, clear paragraphs, signature)
+
+Always include:
+- A greeting with the customer's name if available
+- A clear response to their inquiry
+- Next steps if applicable
+- A professional sign-off with your name (Alex from Acme Support)
+
+When responding to order status inquiries:
+- Verify the order number format (ACME-XXX-XXXX)
+- If valid, provide the status
+- If not found, ask for verification or alternative details
+
+Forward emails to humans when:
+- The inquiry involves account security
+- A customer is clearly upset (multiple exclamation points, ALL CAPS, etc.)
+- Legal issues are mentioned
+- The query is completely outside your knowledge area
+
+Never make up order information or product specifications if you don't have them.
+```
+</Accordion>
+
+### Step 4: Knowledge Base Connection
+
+Connect relevant knowledge to your email assistant:
+
+1. Click the **Knowledge** tab in the setup wizard
+2. Select files from your Knowledge Base to associate with this assistant
+3. Adjust the knowledge retrieval settings:
+   - **Relevance Threshold**: Set how closely content must match (0.0-1.0)
+   - **Number of References**: How many knowledge snippets to include
+
+<img src="/images/email-knowledge-connection.png" alt="Email Knowledge Connection" />
+*[Screenshot placeholder: Knowledge connection interface for email assistant]*
+
+### Step 5: Email Account Connection
+
+Connect your email account:
+
+1. Click the **Email Connection** tab
+2. Select your connection method:
+   - **Direct IMAP/SMTP**: Connect using server details and credentials
+   - **Microsoft 365**: Connect using OAuth
+   - **Gmail**: Connect using OAuth
+
+3. For IMAP/SMTP connection, provide:
+   - **IMAP Server** and **Port**
+   - **SMTP Server** and **Port**
+   - **Email Address**
+   - **Password** or **App Password**
+
+4. For OAuth connections:
+   - Click **Connect Account**
+   - Log in to your email provider
+   - Grant the required permissions
+
+<img src="/images/email-connection-setup.png" alt="Email Connection Setup" />
+*[Screenshot placeholder: Email connection configuration screen]*
+
+### Step 6: Email Handling Rules
+
+Configure how your assistant processes emails:
+
+1. **Monitored Folders**: Select which email folders to monitor (Inbox, Support, etc.)
+2. **Email Filters**: Create rules to determine which emails the assistant should handle
+   - By sender domain
+   - By subject line keywords
+   - By specific email addresses
+
+3. **Response Settings**:
+   - **Auto-Reply**: Enable/disable automatic responses
+   - **Reply Timing**: Immediate or delayed responses
+   - **CC/BCC Rules**: Configure carbon copy behavior
+   - **Signature**: Set up your email signature
+
+<img src="/images/email-handling-rules.png" alt="Email Handling Rules" />
+*[Screenshot placeholder: Email rules configuration interface]*
+
+### Step 7: Human Escalation
+
+Configure when and how to escalate emails to human agents:
+
+1. **Escalation Triggers**:
+   - Specific keywords or phrases
+   - Confidence threshold
+   - Customer sentiment
+   - Number of email exchanges
+
+2. **Escalation Actions**:
+   - Forward to specific team members
+   - Create a ticket in the ticketing system
+   - Add tags or categories
+   - Send notification to team
+
+3. **Escalation Message**: Customize the message sent to customers when their email is escalated
+
+<img src="/images/email-escalation-settings.png" alt="Email Escalation Settings" />
+*[Screenshot placeholder: Escalation configuration screen]*
+
+### Step 8: Advanced Settings
+
+Configure additional options:
+
+1. **Attachment Handling**: 
+   - How to process incoming attachments
+   - Whether the assistant can send attachments
+
+2. **Language Detection**:
+   - Automatically detect email language
+   - Route non-supported languages to human agents
+
+3. **Follow-up Behavior**:
+   - Configure automatic follow-ups for unresolved issues
+   - Set follow-up timing and messaging
+
+### Step 9: Finalize Creation
+
+1. Review all settings across the different tabs
+2. Click **Create Assistant** to save your configuration
+3. You'll be redirected to the assistant details page
+
+## Testing Your Email Assistant
+
+Before fully deploying your email assistant:
+
+1. On the assistant details page, click the **Test** tab
+2. Send a test email to the connected email address
+3. Observe how the assistant processes and responds
+4. Verify that knowledge retrieval is working correctly
+5. Test escalation scenarios
+
+<img src="/images/test-email-assistant.png" alt="Testing Email Assistant" />
+*[Screenshot placeholder: Email testing interface with sample email thread]*
+
+## Monitoring Email Performance
+
+Once your email assistant is active:
+
+1. Navigate to the **Analytics** tab on your assistant's page
+2. Review key metrics:
+   - Response time
+   - Resolution rate
+   - Escalation rate
+   - User satisfaction (if feedback is enabled)
+
+3. Examine specific email threads to evaluate response quality
+4. Use filters to focus on specific time periods or email categories
+
+<img src="/images/email-analytics.png" alt="Email Analytics" />
+*[Screenshot placeholder: Email assistant analytics dashboard]*
+
+## Best Practices
+
+### Email-Specific Instructions
+
+- Include guidance on email formatting (greetings, paragraphs, sign-offs)
+- Specify how to handle attachments and links
+- Define appropriate tone for different types of inquiries
+- Include examples of good email responses
+
+### Managing Email Flow
+
+- Start with limited email traffic until you've validated performance
+- Use specific folders or filters for initial deployment
+- Gradually expand to handle more email categories
+- Regularly review escalated emails to improve instructions
+
+### Compliance Considerations
+
+- Ensure your assistant complies with email regulations (CAN-SPAM, GDPR, etc.)
+- Include appropriate legal disclaimers in emails
+- Configure proper handling of sensitive information
+- Maintain records of email communications as required
+
+## Troubleshooting
+
+<Accordion title="Authentication Errors">
+If your email connection fails:
+- Verify server details and credentials
+- Check that IMAP/SMTP is enabled on your email account
+- For Gmail, ensure "Less secure app access" is enabled or use App Passwords
+- For Microsoft 365, verify that the appropriate API permissions are granted
+</Accordion>
+
+<Accordion title="Email Not Being Processed">
+If emails aren't being processed:
+- Check that the correct folders are being monitored
+- Verify email filters aren't too restrictive
+- Ensure the email server isn't blocking automated access
+- Check connection status in the Email Connection tab
+</Accordion>
+
+<Accordion title="Poor Response Quality">
+If responses aren't meeting expectations:
+- Refine the assistant instructions with more specific guidance
+- Add more relevant knowledge files
+- Adjust the AI model parameters (try a different model or temperature)
+- Add more examples of ideal responses to the instructions
+</Accordion>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Configure Email Integration"
+    icon="envelope-circle-check"
+    href="/communication-channels/email-integration"
+  >
+    Learn more about advanced email integration options
+  </Card>
+  <Card
+    title="Ticket Management"
+    icon="ticket"
+    href="/ticket-management/overview"
+  >
+    Connect email assistants to your ticketing system
+  </Card>
+  <Card
+    title="Assistant Management"
+    icon="sliders"
+    href="/ai-assistants/management"
+  >
+    Learn how to manage multiple assistants effectively
+  </Card>
+  <Card
+    title="Create Voice Assistant"
+    icon="phone"
+    href="/ai-assistants/voice-assistants"
+  >
+    Set up an assistant to handle phone calls
+  </Card>
+</CardGroup>

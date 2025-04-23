@@ -1,0 +1,259 @@
+---
+title: 'Creating Chat Assistants'
+description: 'Learn how to build and deploy AI-powered chat assistants for your website'
+---
+
+# Creating Chat Assistants
+
+Chat assistants enable real-time, AI-powered conversations with your website visitors. This guide walks you through the process of creating, configuring, and deploying a chat assistant on your website.
+
+## Before You Begin
+
+Before creating a chat assistant, it's helpful to:
+
+- Define the primary purpose of your assistant (support, sales, information, etc.)
+- Identify common questions your assistant should answer
+- Prepare any knowledge documents your assistant might need
+- Consider the tone and personality your assistant should have
+
+## Creating a New Chat Assistant
+
+### Step 1: Initiate Creation
+
+1. Navigate to the **Assistants** section in the sidebar
+2. Click the **+ Create Assistant** button in the top-right corner
+3. Select **Chat** as the assistant type
+4. Click **Continue**
+
+<img src="/images/create-chat-assistant.png" alt="Create Chat Assistant" />
+*[Screenshot placeholder: Assistant creation screen with Chat type selected]*
+
+### Step 2: Basic Configuration
+
+In the first section of the setup wizard, configure the basic settings:
+
+1. **Name**: Give your assistant a descriptive name (e.g., "Support Bot", "Sales Assistant")
+2. **Description**: Add a brief description of the assistant's purpose
+3. **Avatar**: Upload a custom avatar image or select one from the library
+4. **Language**: Choose the primary language for your assistant
+
+<Note>
+Choose a name that reflects the assistant's function. This helps users understand who they're talking to.
+</Note>
+
+### Step 3: AI Model Configuration
+
+Configure the AI model settings to control your assistant's behavior:
+
+1. **Instructions**: Write detailed instructions for your assistant's behavior, knowledge, and tone
+   - Be specific about how it should respond
+   - Define its role and limitations
+   - Specify when it should escalate to a human
+
+2. **Model**: Select the AI model to power your assistant
+   - GPT-4: Most capable model for complex conversations
+   - GPT-3.5: Good balance of performance and cost
+
+3. **Temperature**: Adjust the creativity level (0.0-1.0)
+   - Lower values (0.2-0.4): More consistent, conservative responses
+   - Higher values (0.6-0.8): More creative, varied responses
+
+<img src="/images/chat-model-settings.png" alt="Chat Assistant Model Settings" />
+*[Screenshot placeholder: Model configuration screen with parameters]*
+
+<Accordion title="Example Instructions">
+```
+You are a customer support representative for Acme Inc., a company that sells office supplies.
+
+Your name is Alex, and you should be helpful, friendly, and professional.
+
+You can help with:
+- Product information and recommendations
+- Order status inquiries (but you'll need an order number)
+- Return policies and procedures
+- General company information
+
+If asked about order specifics without an order number, politely ask for the order number.
+
+If users have complex issues or want to speak with a human, offer to create a support ticket or transfer them to a human agent.
+
+Avoid:
+- Making up information about products or policies
+- Promising specific delivery dates
+- Handling personal data like credit card information
+- Discussing competitors in detail
+
+Always maintain a positive, helpful tone, and don't use excessive technical jargon.
+```
+</Accordion>
+
+### Step 4: Knowledge Base Connection
+
+Connect relevant knowledge to help your assistant provide accurate information:
+
+1. Click the **Knowledge** tab in the setup wizard
+2. Select files from your Knowledge Base to associate with this assistant
+3. Adjust the knowledge retrieval settings if needed:
+   - **Relevance Threshold**: Set how closely content must match a query (0.0-1.0)
+   - **Number of References**: How many knowledge snippets to include per response
+
+<img src="/images/knowledge-connection.png" alt="Knowledge Base Connection" />
+*[Screenshot placeholder: Knowledge connection interface with selected files]*
+
+<Note>
+If you haven't uploaded knowledge files yet, you can add them later by editing the assistant.
+</Note>
+
+### Step 5: Communication Settings
+
+Configure how your assistant handles conversations:
+
+1. **Welcome Message**: Set the initial message users see when starting a conversation
+2. **Fallback Response**: Define what the assistant says when it can't answer a question
+3. **Conversation Timeout**: Set how long until an inactive conversation closes
+4. **File Sharing**: Enable or disable file uploads from users
+
+<img src="/images/chat-communication-settings.png" alt="Communication Settings" />
+*[Screenshot placeholder: Communication settings screen]*
+
+### Step 6: Human Handoff
+
+Configure when and how your assistant transfers conversations to human agents:
+
+1. **Handoff Triggers**: Define conditions that trigger a human handoff
+   - Explicit user request
+   - Multiple fallback responses
+   - Specific keywords or topics
+   - Sentiment detection
+
+2. **Handoff Behavior**:
+   - Set notification preferences for agents
+   - Configure queue behavior
+   - Define handoff messages
+
+<img src="/images/human-handoff-settings.png" alt="Human Handoff Settings" />
+*[Screenshot placeholder: Human handoff configuration screen]*
+
+### Step 7: Advanced Settings
+
+Configure additional options for your chat assistant:
+
+1. **Persistent Context**: How much conversation history to maintain
+2. **Analytics**: Enable detailed conversation analytics
+3. **Message Ratings**: Allow users to rate assistant responses
+4. **Custom Variables**: Define variables to track during conversations
+
+### Step 8: Finalize Creation
+
+1. Review all settings across the different tabs
+2. Click **Create Assistant** to save your configuration
+3. You'll be redirected to the assistant details page
+
+## Testing Your Chat Assistant
+
+Before deploying to your website, test your assistant:
+
+1. On the assistant details page, click the **Test** tab
+2. Start a conversation with your assistant
+3. Try different questions and scenarios to evaluate responses
+4. Check how knowledge retrieval works with various queries
+5. Test human handoff functionality if configured
+
+<img src="/images/test-chat-assistant.png" alt="Testing Chat Assistant" />
+*[Screenshot placeholder: Testing interface with sample conversation]*
+
+## Deploying on Your Website
+
+To deploy your chat assistant on your website:
+
+1. Navigate to the **Channels** tab on your assistant's page
+2. Click **+ Add Channel** and select **Website Widget**
+3. Configure the widget appearance:
+   - Colors and theme
+   - Position on page
+   - Size and behavior
+4. Configure visitor information collection if needed
+5. Click **Save Configuration**
+6. Copy the generated JavaScript code
+7. Paste the code into your website's HTML, just before the closing `</body>` tag
+
+<img src="/images/chat-widget-configuration.png" alt="Chat Widget Configuration" />
+*[Screenshot placeholder: Widget configuration screen]*
+
+<CodeGroup>
+```html Website Integration Code
+<!-- Flowbotic Chat Widget -->
+<script>
+  window.flowboticSettings = {
+    widgetId: "your-widget-id",
+    assistantId: "your-assistant-id",
+    theme: "light",
+    position: "right"
+  };
+  
+  (function(d) {
+    var s = d.createElement("script");
+    s.src = "https://cdn.flowbotic.com/widget/v1/flowbotic.js";
+    s.async = 1;
+    d.getElementsByTagName("head")[0].appendChild(s);
+  })(document);
+</script>
+<!-- End Flowbotic Chat Widget -->
+```
+</CodeGroup>
+
+## Best Practices
+
+### Writing Effective Instructions
+
+- Be specific about the assistant's role and knowledge
+- Define the tone and personality clearly
+- Include examples of good responses
+- Specify limitations and escalation criteria
+
+### Optimizing Knowledge
+
+- Use clear, concise documents focused on single topics
+- Break large documents into smaller, focused files
+- Include common variations of terms and questions
+- Update knowledge regularly as information changes
+
+### Testing and Refinement
+
+- Test with a variety of questions, including edge cases
+- Review conversation logs to identify improvement areas
+- Update instructions based on common misunderstandings
+- Add new knowledge files to address gaps
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Configure Webchat Widget"
+    icon="sliders"
+    href="/communication-channels/webchat-widget"
+  >
+    Customize the appearance and behavior of your chat widget
+  </Card>
+  <Card
+    title="Manage Knowledge Base"
+    icon="book"
+    href="/knowledge-base/management"
+  >
+    Learn how to organize and update your assistant's knowledge
+  </Card>
+  <Card
+    title="Analyze Performance"
+    icon="chart-simple"
+    href="/analytics/assistant-performance"
+  >
+    Track and improve your assistant's effectiveness
+  </Card>
+  <Card
+    title="Create Email Assistant"
+    icon="envelope"
+    href="/ai-assistants/email-assistants"
+  >
+    Set up an assistant to handle email communications
+  </Card>
+</CardGroup>
